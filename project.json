@@ -14,7 +14,8 @@
   "dependencies": {
     "RabbitMQ.Client": "4.1.0",
     "NUnit": "3.4.1",
-    "dotnet-test-nunit": "3.4.0-beta-2"
+    "dotnet-test-nunit": "3.4.0-beta-2",
+    "MathNet.Numerics": "3.13.1"
   },
   "testRunner": "nunit",
   "tools": {
