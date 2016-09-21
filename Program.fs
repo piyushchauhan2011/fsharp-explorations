@@ -1,6 +1,8 @@
 ﻿// Learn more about F# at http://fsharp.org
 namespace FSharpCode
 
+#nowarn "40"
+
 open System
 open System.IO
 open System.Collections.Generic
@@ -96,8 +98,8 @@ module Program =
         let myMat = Matrix<double>.Build.Random(10,10)
         let myMat' = myMat.Inverse()
         printfn "%A" myMat'
-
-        let rec fib =
+        
+        let rec fib = 
             let dict = new Dictionary<_,_>()
             fun n ->
                 match dict.TryGetValue(n) with
