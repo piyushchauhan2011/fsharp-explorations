@@ -72,4 +72,12 @@ module Program =
         xsv |> Seq.iter (Array.map (fun s -> s.ToString()) >> printfn "Entries: %A")
         xsv |> printfn "%A"
         
+        let printTwoParameters x y = 
+            printfn "x=%i y=%i" x y
+        
+        // step by step version
+        let x = 6
+        let y = 99
+        let intermediateFn = printTwoParameters x  // return fn with // x "baked in"
+        let result  = intermediateFn y
         0 // return an integer exit code
