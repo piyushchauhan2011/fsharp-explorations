@@ -3,6 +3,7 @@ namespace FSharpCode
 
 open System
 open System.IO
+open System.Collections.Generic
 open System.Net
 open RabbitMQ.Client
 open BasicFunctions
@@ -95,4 +96,18 @@ module Program =
         let myMat = Matrix<double>.Build.Random(10,10)
         let myMat' = myMat.Inverse()
         printfn "%A" myMat'
+
+        let rec fib =
+            let dict = new Dictionary<_,_>()
+            fun n ->
+                match dict.TryGetValue(n) with
+                | true, v -> v
+                | false, _ -> 
+                    let temp =
+                        if n = 0I then 0I
+                        elif n = 1I then 1I
+                        else fib (n - 1I) + fib(n - 2I)
+                    dict.Add(n, temp)
+                    temp
+        fib(100I) |> printfn "%A"
         0 // return an integer exit code
