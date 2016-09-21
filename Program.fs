@@ -35,6 +35,10 @@ module Program =
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
         Assert.AreEqual(4, 2+2)
+
+    [<Test>]
+    let ``When List is added to list expect length to increment by 1``() = 
+        Assert.AreEqual(11, 11 :: [1..10] |> List.length)
     
     [<EntryPoint>]
     let main argv = 
