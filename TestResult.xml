@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-run id="0" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1" portable-engine-version="3.3.0.0" start-time="2016-09-21 08:23:19Z" end-time="2016-09-21 08:23:20Z" duration="0.257355">
+  <test-suite type="Assembly" id="1002" name="fsharpvscode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" fullname="fsharpvscode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" runstate="Runnable" testcasecount="1" result="Passed" start-time="2016-09-21 08:23:20Z" end-time="2016-09-21 08:23:20Z" duration="0.087331" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1">
+    <settings>
+      <setting name="WorkDirectory" value="/Users/piyushchauhan/Documents/testcodes/fsharpvscode" />
+    </settings>
+    <test-suite type="TestSuite" id="1003" name="FSharpCode" fullname="FSharpCode" runstate="Runnable" testcasecount="1" result="Passed" start-time="2016-09-21 08:23:20Z" end-time="2016-09-21 08:23:20Z" duration="0.074330" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1">
+      <test-suite type="TestFixture" id="1000" name="Program" fullname="FSharpCode.Program" classname="FSharpCode.Program" runstate="Runnable" testcasecount="1" result="Passed" start-time="2016-09-21 08:23:20Z" end-time="2016-09-21 08:23:20Z" duration="0.070336" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1">
+        <test-case id="1001" name="When 2 is added to 2 expect 4" fullname="FSharpCode.Program.When 2 is added to 2 expect 4" methodname="When 2 is added to 2 expect 4" classname="FSharpCode.Program" runstate="Runnable" seed="2085186700" result="Passed" start-time="2016-09-21 08:23:20Z" end-time="2016-09-21 08:23:20Z" duration="0.018405" asserts="1" />
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -12,8 +12,11 @@
     }
   },
   "dependencies": {
-    "RabbitMQ.Client": "4.1.0"
+    "RabbitMQ.Client": "4.1.0",
+    "NUnit": "3.4.1",
+    "dotnet-test-nunit": "3.4.0-beta-2"
   },
+  "testRunner": "nunit",
   "tools": {
     "dotnet-compile-fsc":"1.0.0-preview2-*"
   },
@@ -25,7 +28,8 @@
           "version": "1.0.1"
         },
         "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629"
-      }
+      },
+      "imports": "portable-net45+win8+wp8+wpa81"
     }
   }
 }
