@@ -80,4 +80,9 @@ module Program =
         let y = 99
         let intermediateFn = printTwoParameters x  // return fn with // x "baked in"
         let result  = intermediateFn y
+
+        // Partial Application
+        List.map    (fun i -> i+1) [0;1;2;3] |> printfn "%A"
+        List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
+        List.sortBy (fun i -> -i) [0;1;2;3] |> printfn "%A"
         0 // return an integer exit code
