@@ -91,7 +91,7 @@ module Program =
         List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
         List.sortBy (fun i -> -i) [0;1;2;3] |> printfn "%A"
 
-        let myMat = Matrix<double>.Build.Random(50,50)
-        let myMat' = myMat.Transpose()
+        let myMat = Matrix<double>.Build.Random(10,10)
+        let myMat' = myMat.Inverse()
         printfn "%A" myMat'
         0 // return an integer exit code
