@@ -7,6 +7,29 @@ open BasicFunctions
 open NUnit.Framework
 
 module Program =
+    // interface
+    type IEnumerator<'a> =
+        abstract member Current: 'a
+        abstract MoveNext: unit -> bool
+    
+    // abstract base class with virtual methods
+    [<AbstractClass>]
+    type Shape() =
+        //readonly properties
+        abstract member Width: int with get
+        abstract member Height: int with get
+        //non-virtual method
+        member this.BoundingArea = this.Height * this.Width
+        //virtual method with base implementation
+        abstract member Print: unit -> unit
+        default this.Print() = printfn "I'm a shape"
+    
+    type Rectangle(x:int, y:int) =
+        inherit Shape()
+        override this.Width = x
+        override this.Height = y
+        override this.Print() = printfn "I'm a Rectangle"
+
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
         Assert.AreEqual(4, 2+2)
@@ -24,4 +47,9 @@ module Program =
         printfn "%A" (arbrn ** 2)
         
         printfn "%d" (func1 4573)
+
+        let r = Rectangle(2, 3)
+        printfn "The width is %i" r.Width
+        printfn "The area is %i" r.BoundingArea
+        r.Print()
         0 // return an integer exit code
