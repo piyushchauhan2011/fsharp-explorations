@@ -112,4 +112,10 @@ module Program =
                     dict.Add(n, temp)
                     temp
         fib(100I) |> printfn "%A"
+
+        let seqInfinite = Seq.initInfinite (fun index ->
+            let n = float( index + 1 )
+            1.0 / (n * n * (if ((index + 1) % 2 = 0) then 1.0 else -1.0)))
+        printfn "%A" seqInfinite
+        seqInfinite |> Seq.take 2 |> printfn "%A"
         0 // return an integer exit code
