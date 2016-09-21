@@ -55,12 +55,21 @@ module Program =
         printfn "The area is %i" r.BoundingArea
         r.Print()
 
-        let data = seq {
-            use fs = new FileStream(@"ProgrammingLanguages.csv", FileMode.Open)
-            use sr = new StreamReader(fs)
-            while not sr.EndOfStream do
-                yield sr.ReadLine()
-        }
-        data |> printfn "%A"
+        let filename = @"ProgrammingLanguages.csv"
+        let xsvEnumerator fileName = 
+            seq {
+                use fs = new FileStream(fileName, FileMode.Open)
+                use s = new StreamReader(fs)
+                while not s.EndOfStream do
+                    let line = s.ReadLine()
+                    let tokens = line.Split [|'\t'|]
+                    yield tokens
+            }
+        let xsv = xsvEnumerator(filename)
+        // xsv |> Seq.iter (string >> printfn "line %s")
+        xsv |> Seq.iter (Array.length >> printfn "line has %d entries")
+        xsv |> Seq.iter (Array.map (fun s -> s.Length) >> printfn "lengths of entries: %A")
+        xsv |> Seq.iter (Array.map (fun s -> s.ToString()) >> printfn "Entries: %A")
+        xsv |> printfn "%A"
         
         0 // return an integer exit code
