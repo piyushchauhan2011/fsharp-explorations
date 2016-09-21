@@ -7,6 +7,7 @@ open System
 open System.IO
 open System.Collections.Generic
 open System.Net
+open System.Threading.Tasks
 open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
@@ -118,4 +119,22 @@ module Program =
             1.0 / (n * n * (if ((index + 1) % 2 = 0) then 1.0 else -1.0)))
         printfn "%A" seqInfinite
         seqInfinite |> Seq.take 2 |> printfn "%A"
+
+        let movies = array2D [| [|"The Terminator"; "1984"|]
+                                [|"Predator"; "1987"|]
+                                [| "Commando"; "1985" |]
+                                [| "The Running Man"; "1987" |]
+                                [| "True Lies"; "1994" |]
+                                [| "Last Action Hero"; "1993" |]
+                                [| "Total Recall"; "1990" |]
+                                [| "Conan the Barbarian"; "1982" |]
+                                [| "Conan the Destroyer"; "1984" |]
+                                [| "Hercules in New York"; "1969" |]
+                             |]
+        movies |> printfn "%A"
+
+        query { for n in [1..100] do 
+                where (n%2 = 0)
+                sortByDescending n } |> printfn "%A"
+        Parallel.For(0, 100, printf "%i ") |> ignore
         0 // return an integer exit code
