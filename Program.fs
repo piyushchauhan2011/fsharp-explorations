@@ -89,8 +89,8 @@ module Program =
         let y = 99
         let intermediateFn = printTwoParameters x  // return fn with // x "baked in"
         let result  = intermediateFn y
-        let infSeq n = seq { 1..n }
-        infSeq 10 |> printfn "%A"
+        let infSeq n = seq { 1I..n }
+        infSeq 1000000000000I |> printfn "%A"
         // Partial Application
         List.map    (fun i -> i+1) [0;1;2;3] |> printfn "%A"
         List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
