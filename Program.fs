@@ -2,6 +2,8 @@
 namespace FSharpCode
 
 open System
+open System.IO
+open System.Net
 open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
@@ -52,4 +54,13 @@ module Program =
         printfn "The width is %i" r.Width
         printfn "The area is %i" r.BoundingArea
         r.Print()
+
+        let data = seq {
+            use fs = new FileStream(@"ProgrammingLanguages.csv", FileMode.Open)
+            use sr = new StreamReader(fs)
+            while not sr.EndOfStream do
+                yield sr.ReadLine()
+        }
+        data |> printfn "%A"
+        
         0 // return an integer exit code
