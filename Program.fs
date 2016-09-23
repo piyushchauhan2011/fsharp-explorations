@@ -296,7 +296,8 @@ module Program =
         let workThenWait() =
             Thread.Sleep(1000) |> ignore
             printfn "work done"
-            async { do c.GetStringAsync(uri) |> printfn "%A" }
+            async { do c.GetStringAsync(uri).Result |> printfn "%A" }
+            // async { do c.GetAsync(uri).Result |> printfn "%A" }
         let work = workThenWait() |> Async.StartAsTask
         printfn "started"
         work.Wait()
