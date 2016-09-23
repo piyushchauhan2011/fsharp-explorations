@@ -294,7 +294,7 @@ module Program =
         let uri = "http://google.com"
         let c = new HttpClient()
         let workThenWait() =
-            Async.Sleep(1000) |> ignore
+            Thread.Sleep(1000) |> ignore
             printfn "work done"
             async { do c.GetStringAsync(uri) |> printfn "%A" }
         let work = workThenWait() |> Async.StartAsTask
