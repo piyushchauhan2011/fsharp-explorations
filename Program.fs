@@ -7,12 +7,14 @@ open System
 open System.IO
 open System.Collections.Generic
 open System.Net
-open System.Threading.Tasks
 open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
 open MathNet.Numerics.LinearAlgebra
 open System.Text.RegularExpressions
+open System.Net.Http
+open System.Threading;
+open System.Threading.Tasks;
 
 [<Measure>] type ft
 [<Measure>] type sqft = ft ^ 2
@@ -289,4 +291,14 @@ module Program =
         // let mutable guess = String.Empty
         // guess <- Console.ReadLine()
         // Console.WriteLine(String.Format("You didn't guess the password {0}", guess))
+        let uri = "http://google.com"
+        let c = new HttpClient()
+        let workThenWait() =
+            Async.Sleep(1000) |> ignore
+            printfn "work done"
+            async { do c.GetStringAsync(uri) |> printfn "%A" }
+        let work = workThenWait() |> Async.StartAsTask
+        printfn "started"
+        work.Wait()
+        printfn "completed"
         0 // return an integer exit code
