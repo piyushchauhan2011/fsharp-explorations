@@ -13,6 +13,11 @@ open BasicFunctions
 open NUnit.Framework
 open MathNet.Numerics.LinearAlgebra
 
+[<Measure>] type ft
+[<Measure>] type sqft = ft ^ 2
+
+[<Measure>] type dpi
+
 module Program =
     // interface
     type IEnumerator<'a> =
@@ -136,5 +141,12 @@ module Program =
         query { for n in [1..100] do 
                 where (n%2 = 0)
                 sortByDescending n } |> printfn "%A"
-        Parallel.For(0, 100, printf "%i ") |> ignore
+        Parallel.For(0, 100, printf "%i ") |> printfn "%A"
+
+        let length = 10.0<ft>
+        let area = 10.0<sqft>
+        printfn "Area: %A" area
+
+        let resolution = 300.0 * 1.0<dpi>
+        printfn "Resolution: %A" resolution
         0 // return an integer exit code
