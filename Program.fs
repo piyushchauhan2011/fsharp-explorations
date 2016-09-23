@@ -28,13 +28,8 @@ module QuerySource =
                  override x.ToString() = sprintf "%s, %s" x.LastName x.FirstName
     type FilmActor = { FilmId : int; ActorId : int }
 
-    /// <summary>
-    /// Given a radius, calculate the diameter, area, and circumference /// of a circle
-    /// </summary>
-    /// <param name="radius">The circle's radius</param>
-    /// <returns>
-    /// A triple containing the diameter, area, and circumference
-    /// </returns>
+    /// Given a radius, calculate the diameter, area, and circumference
+    /// of a circle
     let measureCircle radius =
         let diameter = radius * 2.0
         let area = Math.PI * (radius ** 2.0)
