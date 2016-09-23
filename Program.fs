@@ -77,7 +77,7 @@ module Program =
         override this.Height = y
         override this.Print() = printfn "I'm a Rectangle"
 
-    type Person (id: Guid, name: string, age: int) =
+    type Guy(id: Guid, name: string, age: int) =
         member x.Id = id
         member x.Name = name
         member x.Age = age
@@ -114,6 +114,18 @@ module Program =
         static member Tiet = "Land Wears"
         override x.ToString() =
             sprintf "%s: %i/%i" name x.HP maxHP
+
+    type Person(name : string) =
+        let mutable _name = name;
+        let nameChanged = new Event<unit>() (* creates event *)
+        
+        member this.NameChanged = nameChanged.Publish (* exposed event handler *)
+        
+        member this.Name
+            with get() = _name
+            and set(value) =
+                _name <- value
+                nameChanged.Trigger() (* invokes event handler *)
 
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
@@ -233,7 +245,7 @@ module Program =
         )
         printfn "Done"
 
-        let me = Person(Guid.NewGuid(), "Dave", 23)
+        let me = Guy(Guid.NewGuid(), "Dave", 23)
         me |> printfn "%A"
 
         let yellow = RgbColor(255, 255, 0)
@@ -249,4 +261,20 @@ module Program =
 
         Character.SayWeapon |> ignore
         Character.Tiet |> printfn "%A"
+
+        let p = new Person("Bob")
+        p.NameChanged.Add(fun () -> printfn "-- Name changed! New name: %s" p.Name)
+
+        printfn "Event handling is easy"
+        p.Name <- "Joe"
+
+        printfn "It handily decouples objects from one another"
+        p.Name <- "Moe"
+
+        p.NameChanged.Add(fun () -> printfn "-- Another handler attached to NameChanged!")
+
+        printfn "It's also causes programs behave non-deterministically."
+        p.Name <- "Bo"
+
+        printfn "The function NameChanged is invoked effortlessly."
         0 // return an integer exit code
