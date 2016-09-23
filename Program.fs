@@ -186,4 +186,12 @@ module Program =
         printfn "Resolution: %A" resolution
         
         query { for f in QuerySource.films do select f } |> printfn "%A"
+
+        Parallel.Invoke(
+            (fun () -> printfn "Task 1"),
+            (fun () -> Task.Delay(500).Wait()
+                       printfn "Task 2"),
+            (fun () -> printfn "Task 3")
+        )
+        printfn "Done"
         0 // return an integer exit code
