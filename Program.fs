@@ -77,6 +77,12 @@ module Program =
         override this.Height = y
         override this.Print() = printfn "I'm a Rectangle"
 
+    type Person (id: Guid, name: string, age: int) =
+        member x.Id = id
+        member x.Name = name
+        member x.Age = age
+        override x.ToString() = sprintf "%A %s %d" x.Id x.Name x.Age
+
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
         Assert.AreEqual(4, 2+2)
@@ -194,4 +200,7 @@ module Program =
             (fun () -> printfn "Task 3")
         )
         printfn "Done"
+
+        let me = Person(Guid.NewGuid(), "Dave", 23)
+        me |> printfn "%A"
         0 // return an integer exit code
