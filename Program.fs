@@ -285,4 +285,8 @@ module Program =
         printfn "cat =~ dog: %b" ("cat" =~ "dog")
         printfn "cat =~ cat|dog: %b" ("cat" =~ "cat|dog")
         printfn "monkey =~ monk*: %b" ("monkey" =~ "monk*")
+
+        // let mutable guess = String.Empty
+        // guess <- Console.ReadLine()
+        // Console.WriteLine(String.Format("You didn't guess the password {0}", guess))
         0 // return an integer exit code
