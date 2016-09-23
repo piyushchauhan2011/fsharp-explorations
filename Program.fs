@@ -95,6 +95,25 @@ module Program =
                 r.Green ^^^ 0xFF,
                 r.Blue ^^^ 0xFF
             )
+    
+    type IWeapon =
+        abstract Description: string with get
+        abstract Power: int with get
+    
+    type Character(name: string, maxHP: int) =
+        member x.Name = name
+        member val HP = maxHP with get, set
+        member val Weapon: IWeapon option = None with get, set
+        member x.Attack(o: Character) =
+            let power = match x.Weapon with
+                        | Some(w) -> w.Power
+                        | None -> 1
+            o.HP <- Math.Max(0, o.HP - power)
+        static member SayWeapon() =
+            printfn "%A" Character.Tiet
+        static member Tiet = "Land Wears"
+        override x.ToString() =
+            sprintf "%s: %i/%i" name x.HP maxHP
 
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
@@ -224,4 +243,10 @@ module Program =
         middleName |> printfn "%A"
         let middleName = Some("William")
         middleName |> printfn "%A"
+
+        let witchKing = Character("Witch-king", 100)
+        let frodo = Character("Frodo", 50)
+
+        Character.SayWeapon |> ignore
+        Character.Tiet |> printfn "%A"
         0 // return an integer exit code
