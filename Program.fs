@@ -83,6 +83,19 @@ module Program =
         member x.Age = age
         override x.ToString() = sprintf "%A %s %d" x.Id x.Name x.Age
 
+    type RgbColor(r: int, g: int, b: int) =
+        member x.Red = r
+        member x.Green = g
+        member x.Blue = b
+        override x.ToString() = sprintf "%i, %i, %i" r g b
+
+        static member (~-) (r: RgbColor) =
+            RgbColor(
+                r.Red ^^^ 0xFF,
+                r.Green ^^^ 0xFF,
+                r.Blue ^^^ 0xFF
+            )
+
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
         Assert.AreEqual(4, 2+2)
@@ -203,4 +216,12 @@ module Program =
 
         let me = Person(Guid.NewGuid(), "Dave", 23)
         me |> printfn "%A"
+
+        let yellow = RgbColor(255, 255, 0)
+        -yellow |> printfn "%A" // Blue color
+
+        let middleName: string option = None
+        middleName |> printfn "%A"
+        let middleName = Some("William")
+        middleName |> printfn "%A"
         0 // return an integer exit code
