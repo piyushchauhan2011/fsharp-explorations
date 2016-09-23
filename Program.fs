@@ -27,6 +27,19 @@ module QuerySource =
     type Actor = { Id : int; FirstName : string; LastName : string }
                  override x.ToString() = sprintf "%s, %s" x.LastName x.FirstName
     type FilmActor = { FilmId : int; ActorId : int }
+
+    /// <summary>
+    /// Given a radius, calculate the diameter, area, and circumference /// of a circle
+    /// </summary>
+    /// <param name="radius">The circle's radius</param>
+    /// <returns>
+    /// A triple containing the diameter, area, and circumference
+    /// </returns>
+    let measureCircle radius =
+        let diameter = radius * 2.0
+        let area = Math.PI * (radius ** 2.0)
+        let circumference = 2.0 * Math.PI * radius
+        (diameter, area, circumference)
     
     let films =
         [
@@ -313,4 +326,6 @@ module Program =
             raise <| MyException("blah", "debug")
         with
             | :? MyException as ex -> printfn "My Exception: %s" <| ex.ToString() | _ as ex -> printfn "General Exception: %s" <| ex.ToString()
+        
+        QuerySource.measureCircle 20.0 |> printfn "%A"
         0 // return an integer exit code
