@@ -12,6 +12,7 @@ open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
 open MathNet.Numerics.LinearAlgebra
+open System.Text.RegularExpressions
 
 [<Measure>] type ft
 [<Measure>] type sqft = ft ^ 2
@@ -277,4 +278,11 @@ module Program =
         p.Name <- "Bo"
 
         printfn "The function NameChanged is invoked effortlessly."
+
+        // Regular Expressions
+        let (=~) input pattern =
+            Regex.IsMatch(input, pattern)
+        printfn "cat =~ dog: %b" ("cat" =~ "dog")
+        printfn "cat =~ cat|dog: %b" ("cat" =~ "cat|dog")
+        printfn "monkey =~ monk*: %b" ("monkey" =~ "monk*")
         0 // return an integer exit code
