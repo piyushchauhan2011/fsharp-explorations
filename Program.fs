@@ -130,6 +130,12 @@ module Program =
                 _name <- value
                 nameChanged.Trigger() (* invokes event handler *)
 
+    
+    type MyException(message, category) =
+        inherit exn(message)
+        member x.Category = category
+        override x.ToString() = sprintf "[%s] %s" category message
+
     [<Test>]
     let ``When 2 is added to 2 expect 4``() = 
         Assert.AreEqual(4, 2+2)
@@ -302,4 +308,9 @@ module Program =
         printfn "started"
         work.Wait()
         printfn "completed"
+
+        try
+            raise <| MyException("blah", "debug")
+        with
+            | :? MyException as ex -> printfn "My Exception: %s" <| ex.ToString() | _ as ex -> printfn "General Exception: %s" <| ex.ToString()
         0 // return an integer exit code
