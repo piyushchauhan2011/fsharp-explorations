@@ -10,7 +10,7 @@ open System.Net
 open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
-// open MathNet.Numerics.LinearAlgebra
+open MathNet.Numerics
 open System.Text.RegularExpressions
 open System.Net.Http
 open System.Threading;
@@ -204,7 +204,7 @@ module Program =
         List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
         List.sortBy (fun i -> -i) [0;1;2;3] |> printfn "%A"
 
-        let myMat = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build.Random(10,10)
+        let myMat = LinearAlgebra.Matrix<double>.Build.Random(10,10)
         let myMat' = myMat.Inverse()
         printfn "%A" myMat'
         
