@@ -1,7 +1,7 @@
 ﻿// Learn more about F# at http://fsharp.org
 namespace FSharpCode
 
-#nowarn "40"
+#nowarn "40" // Fib warning
 
 open System
 open System.IO
@@ -200,9 +200,10 @@ module Program =
         let infSeq n = seq { 1I..n }
         infSeq 1000000000000I |> printfn "%A"
         // Partial Application
+        let negate x = -x
         List.map    (fun i -> i+1) [0;1;2;3] |> printfn "%A"
         List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
-        List.sortBy (fun i -> -i) [0;1;2;3] |> printfn "%A"
+        List.sortBy (fun i -> (negate i)) [0;1;2;3] |> printfn "%A"
 
         let myMat = LinearAlgebra.Matrix<double>.Build.Random(10,10)
         let myMat' = myMat.Inverse()
@@ -339,4 +340,13 @@ And then"
 
         let cplx = new Complex(1.0,2.0)
         printfn "%A" cplx
+
+        // Basic Function Composition
+        let square x = x * x
+        let toString (x : int) = x.ToString()
+        let strLen (x : string) = x.Length
+        let lenOfSquare = square >> toString >> strLen
+
+        square 128 |> printfn "%A"
+        lenOfSquare 128 |> printfn "%A"
         0 // return an integer exit code
