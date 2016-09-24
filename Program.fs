@@ -323,7 +323,7 @@ module Program =
         try
             raise <| MyException("blah", "debug")
         with
-            | :? MyException as ex -> printfn "My Exception: %s" <| ex.ToString() | _ as ex -> printfn "General Exception: %s" <| ex.ToString()
+            | :? MyException as ex -> printfn "My Exception: %s" <| ex.ToString() | ex -> printfn "General Exception: %s" <| ex.ToString()
         
         QuerySource.measureCircle 20.0 |> printfn "%A"
 
