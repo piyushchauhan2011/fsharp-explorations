@@ -10,11 +10,12 @@ open System.Net
 open RabbitMQ.Client
 open BasicFunctions
 open NUnit.Framework
-open MathNet.Numerics.LinearAlgebra
+// open MathNet.Numerics.LinearAlgebra
 open System.Text.RegularExpressions
 open System.Net.Http
 open System.Threading;
 open System.Threading.Tasks;
+open System.Numerics
 
 [<Measure>] type ft
 [<Measure>] type sqft = ft ^ 2
@@ -203,7 +204,7 @@ module Program =
         List.filter (fun i -> i>1) [0;1;2;3] |> printfn "%A"
         List.sortBy (fun i -> -i) [0;1;2;3] |> printfn "%A"
 
-        let myMat = Matrix<double>.Build.Random(10,10)
+        let myMat = MathNet.Numerics.LinearAlgebra.Matrix<double>.Build.Random(10,10)
         let myMat' = myMat.Inverse()
         printfn "%A" myMat'
         
@@ -305,17 +306,18 @@ module Program =
         // let mutable guess = String.Empty
         // guess <- Console.ReadLine()
         // Console.WriteLine(String.Format("You didn't guess the password {0}", guess))
-        let uri = "http://google.com"
-        let c = new HttpClient()
-        let workThenWait() =
-            Thread.Sleep(1000) |> ignore
-            printfn "work done"
-            async { do c.GetStringAsync(uri).Result |> printfn "%A" }
-            // async { do c.GetAsync(uri).Result |> printfn "%A" }
-        let work = workThenWait() |> Async.StartAsTask
-        printfn "started"
-        work.Wait()
-        printfn "completed"
+        
+        // let uri = "http://google.com"
+        // let c = new HttpClient()
+        // let workThenWait() =
+        //     Thread.Sleep(1000) |> ignore
+        //     printfn "work done"
+        //     async { do c.GetStringAsync(uri).Result |> printfn "%A" }
+        //     // async { do c.GetAsync(uri).Result |> printfn "%A" }
+        // let work = workThenWait() |> Async.StartAsTask
+        // printfn "started"
+        // work.Wait()
+        // printfn "completed"
 
         try
             raise <| MyException("blah", "debug")
@@ -334,4 +336,7 @@ module Program =
 Good things
 And then"
         printfn "%A" multiLineStr
+
+        let cplx = new Complex(1.0,2.0)
+        printfn "%A" cplx
         0 // return an integer exit code
