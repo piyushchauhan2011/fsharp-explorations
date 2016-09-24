@@ -323,4 +323,15 @@ module Program =
             | :? MyException as ex -> printfn "My Exception: %s" <| ex.ToString() | _ as ex -> printfn "General Exception: %s" <| ex.ToString()
         
         QuerySource.measureCircle 20.0 |> printfn "%A"
+
+        let poem = "The lesser world was daubed\n\
+            By a colorist of modest skill\n\
+            A master limned you in the finest inks\n\
+            And with a fresh-cut quill.\n"
+        printfn "%A" poem
+
+        let multiLineStr = "\
+Good things
+And then"
+        printfn "%A" multiLineStr
         0 // return an integer exit code
