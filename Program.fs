@@ -23,11 +23,24 @@ open System.Numerics
 [<Measure>] type dpi
 
 module QuerySource =
-    type Film = { Id : int; Name : string; ReleaseYear : int; Gross : Nullable<float> }
-                override x.ToString() = sprintf "%s (%i)" x.Name x.ReleaseYear
-    type Actor = { Id : int; FirstName : string; LastName : string }
-                 override x.ToString() = sprintf "%s, %s" x.LastName x.FirstName
-    type FilmActor = { FilmId : int; ActorId : int }
+    type Film = 
+        { Id : int
+          Name : string
+          ReleaseYear : int
+          Gross : Nullable<float> }
+        override x.ToString() = 
+            sprintf "%s (%i)" x.Name x.ReleaseYear
+    
+    type Actor = 
+        { Id : int
+          FirstName : string
+          LastName : string }
+        override x.ToString() = 
+            sprintf "%s, %s" x.LastName x.FirstName
+    
+    type FilmActor = 
+        { FilmId : int
+          ActorId : int }
 
     /// Given a radius, calculate the diameter, area, and circumference
     /// of a circle
@@ -66,6 +79,9 @@ module QuerySource =
         { FilmId = 4; ActorId = 4 } ]
 
 module Program =
+    type Msg = 
+        | Incr of int
+        | Fetch of AsyncReplyChannel<int>
     // interface
     type IEnumerator<'a> =
         abstract member Current: 'a
@@ -349,4 +365,22 @@ And then"
 
         square 128 |> printfn "%A"
         lenOfSquare 128 |> printfn "%A"
+
+        printfn "MailboxProcessor example"
+        let counter = 
+            MailboxProcessor.Start(fun inbox ->
+                let rec loop n =
+                    async {
+                        let! msg = inbox.Receive()
+                        match msg with
+                        | Incr(x) -> return! loop(n + x)
+                        | Fetch(replyChannel) ->
+                            replyChannel.Reply(n)
+                            return! loop(n)
+                    }
+                loop 0
+            )
+        counter.Post(Incr 7)
+        counter.Post(Incr 50)
+        counter.PostAndReply(Fetch) |> printfn "%A"
         0 // return an integer exit code
