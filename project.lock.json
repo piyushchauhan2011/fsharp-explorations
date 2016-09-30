@@ -289,7 +289,7 @@
           "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll": {}
         }
       },
-      "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160629": {
+      "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -316,6 +316,10 @@
             "rid": "any"
           },
           "runtimes/any/native/FSharp.Core.sigdata": {
+            "assetType": "native",
+            "rid": "any"
+          },
+          "runtimes/any/native/FSharp.Core.xml": {
             "assetType": "native",
             "rid": "any"
           }
@@ -2789,12 +2793,12 @@
         "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll"
       ]
     },
-    "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160629": {
-      "sha512": "T4n8//0DBC9JWuZ6HY5eErgLg16bPXo+q49UX4m+MrDIMP7LScUfS3otExI0/Un4Ibs+OjQ6PB7mnM8rHcy13w==",
+    "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831": {
+      "sha512": "9ZN1o4FUXWk+9dYbt8IjAr9/ZHYunYf1587UbCE13b2NLCGfyddy/hp6fsCSseMgZ5yiIPChy2Z2ANe8rAKbYg==",
       "type": "package",
-      "path": "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160629",
+      "path": "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831",
       "files": [
-        "Microsoft.FSharp.Core.netcore.1.0.0-alpha-160629.nupkg.sha512",
+        "Microsoft.FSharp.Core.netcore.1.0.0-alpha-160831.nupkg.sha512",
         "Microsoft.FSharp.Core.netcore.nuspec",
         "content/any/netstandard1.6/FSharp.Core.optdata",
         "content/any/netstandard1.6/FSharp.Core.sigdata",
@@ -2802,8 +2806,10 @@
         "lib/netstandard1.6/FSharp.Core.optdata",
         "lib/netstandard1.6/FSharp.Core.runtimeconfig.json",
         "lib/netstandard1.6/FSharp.Core.sigdata",
+        "lib/netstandard1.6/FSharp.Core.xml",
         "runtimes/any/native/FSharp.Core.optdata",
-        "runtimes/any/native/FSharp.Core.sigdata"
+        "runtimes/any/native/FSharp.Core.sigdata",
+        "runtimes/any/native/FSharp.Core.xml"
       ]
     },
     "Microsoft.NETCore.App/1.0.1": {
@@ -7502,7 +7508,7 @@
       "dotnet-test-nunit >= 3.4.0-beta-2"
     ],
     ".NETCoreApp,Version=v1.0": [
-      "Microsoft.FSharp.Core.netcore >= 1.0.0-alpha-160629",
+      "Microsoft.FSharp.Core.netcore >= 1.0.0-alpha-160831",
       "Microsoft.NETCore.App >= 1.0.1"
     ]
   },

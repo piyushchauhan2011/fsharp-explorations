@@ -28,7 +28,7 @@
           "type": "platform",
           "version": "1.0.1"
         },
-        "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160629"
+        "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-160831"
       },
       "imports": "portable-net45+win8+wp8+wpa81"
     }
