@@ -13,8 +13,8 @@ open NUnit.Framework
 open MathNet.Numerics
 open System.Text.RegularExpressions
 open System.Net.Http
-open System.Threading;
-open System.Threading.Tasks;
+open System.Threading
+open System.Threading.Tasks
 open System.Numerics
 
 [<Measure>] type ft
