@@ -3,13 +3,13 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
-      "dotnet-test-nunit/3.4.0-beta-2": {
+      "dotnet-test-nunit/3.4.0-beta-3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "1.0.0",
           "Microsoft.Extensions.Testing.Abstractions": "1.0.0-preview2-003121",
           "Microsoft.NETCore.App": "1.0.0",
-          "NUnit.Portable.Agent": "3.4.0-beta-2"
+          "NUnit.Portable.Agent": "3.4.0-beta-3"
         },
         "compile": {
           "lib/netcoreapp1.0/dotnet-test-nunit.dll": {}
@@ -18,7 +18,7 @@
           "lib/netcoreapp1.0/dotnet-test-nunit.dll": {}
         }
       },
-      "Libuv/1.9.0": {
+      "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1"
@@ -58,7 +58,7 @@
           }
         }
       },
-      "MathNet.Numerics/3.13.1": {
+      "MathNet.Numerics/3.17.0": {
         "type": "package",
         "compile": {
           "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/MathNet.Numerics.dll": {}
@@ -289,20 +289,32 @@
           "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll": {}
         }
       },
-      "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831": {
+      "Microsoft.FSharp.Core.netcore/1.0.0-rc-170122": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "NETStandard.Library": "1.6.0",
+          "System.Collections": "4.0.11",
+          "System.Console": "4.0.0",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Diagnostics.Tools": "4.0.1",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
           "System.Linq.Expressions": "4.1.0",
           "System.Linq.Queryable": "4.0.1",
           "System.Net.Requests": "4.0.11",
-          "System.Reflection.Emit": "4.0.1",
-          "System.Reflection.TypeExtensions": "4.1.0",
-          "System.Runtime.Loader": "4.0.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.Numerics": "4.0.1",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Threading.Tasks": "4.0.11",
           "System.Threading.Tasks.Parallel": "4.0.1",
           "System.Threading.Thread": "4.0.0",
-          "System.Threading.ThreadPool": "4.0.10"
+          "System.Threading.ThreadPool": "4.0.10",
+          "System.Threading.Timer": "4.0.1"
         },
         "compile": {
           "lib/netstandard1.6/FSharp.Core.dll": {}
@@ -325,10 +337,10 @@
           }
         }
       },
-      "Microsoft.NETCore.App/1.0.1": {
+      "Microsoft.NETCore.App/1.1.0": {
         "type": "package",
         "dependencies": {
-          "Libuv": "1.9.0",
+          "Libuv": "1.9.1",
           "Microsoft.CSharp": "4.0.1",
           "Microsoft.CodeAnalysis.CSharp": "1.3.0",
           "Microsoft.CodeAnalysis.VisualBasic": "1.3.0",
@@ -669,16 +681,20 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
-      "NUnit/3.4.1": {
+      "NUnit/3.6.0": {
         "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.Runtime.Loader": "4.0.0"
+        },
         "compile": {
-          "lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.dll": {}
+          "lib/netstandard1.6/nunit.framework.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.dll": {}
+          "lib/netstandard1.6/nunit.framework.dll": {}
         }
       },
-      "NUnit.Portable.Agent/3.4.0-beta-2": {
+      "NUnit.Portable.Agent/3.4.0-beta-3": {
         "type": "package",
         "dependencies": {
           "System.Globalization": "4.0.11",
@@ -702,7 +718,7 @@
           "lib/netstandard1.3/NUnit.Portable.Agent.dll": {}
         }
       },
-      "RabbitMQ.Client/4.1.0": {
+      "RabbitMQ.Client/4.1.1": {
         "type": "package",
         "dependencies": {
           "System.Collections.Concurrent": "4.0.12",
@@ -1685,7 +1701,7 @@
           "System.Runtime": "4.1.0"
         },
         "compile": {
-          "ref/netstandard1.1/System.Reflection.Emit.dll": {}
+          "ref/netstandard1.1/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.dll": {}
@@ -1699,7 +1715,7 @@
           "System.Runtime": "4.1.0"
         },
         "compile": {
-          "ref/netstandard1.0/System.Reflection.Emit.ILGeneration.dll": {}
+          "ref/netstandard1.0/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.ILGeneration.dll": {}
@@ -2542,24 +2558,24 @@
     }
   },
   "libraries": {
-    "dotnet-test-nunit/3.4.0-beta-2": {
-      "sha512": "ImRqxsZMFzn+bM33emu5ZMzIUe8GOHPxdA2NkUIsawWd4YjvcFzdIo5iNuejlY0lw1M+RMwRbpd/cKkhKft52g==",
+    "dotnet-test-nunit/3.4.0-beta-3": {
+      "sha512": "TCprFJd60JQrNSygKAinVFBF2zQK3V2BRm1jeBvAGKF/6omeMrjO1tBD3UKlZSGvHFNyiocPn7bgU68cNz94ug==",
       "type": "package",
-      "path": "dotnet-test-nunit/3.4.0-beta-2",
+      "path": "dotnet-test-nunit/3.4.0-beta-3",
       "files": [
-        "dotnet-test-nunit.3.4.0-beta-2.nupkg.sha512",
+        "dotnet-test-nunit.3.4.0-beta-3.nupkg.sha512",
         "dotnet-test-nunit.nuspec",
         "lib/net451/dotnet-test-nunit.exe",
         "lib/netcoreapp1.0/dotnet-test-nunit.dll",
         "lib/netcoreapp1.0/dotnet-test-nunit.runtimeconfig.json"
       ]
     },
-    "Libuv/1.9.0": {
-      "sha512": "hFAZlg9vPh25v9ZEwRlLHFuiabSVjJqSbz6mMo0yaXNh9HWJ5RzRO37FdnSMadNI1+fiklZP1h6VoroFUaV84w==",
+    "Libuv/1.9.1": {
+      "sha512": "uqX2Frwf9PW8MaY7PRNY6HM5BpW1D8oj1EdqzrmbEFD5nH63Yat3aEjN/tws6Tw6Fk7LwmLBvtUh32tTeTaHiA==",
       "type": "package",
-      "path": "Libuv/1.9.0",
+      "path": "Libuv/1.9.1",
       "files": [
-        "Libuv.1.9.0.nupkg.sha512",
+        "Libuv.1.9.1.nupkg.sha512",
         "Libuv.nuspec",
         "License.txt",
         "runtimes/debian-x64/native/libuv.so",
@@ -2572,12 +2588,12 @@
         "runtimes/win7-x86/native/libuv.dll"
       ]
     },
-    "MathNet.Numerics/3.13.1": {
-      "sha512": "+0crRPAA0Xs97bbhX9nFKM736OmCwek/3es8leu4q3VUpUxRzZpoReat+pYtA6zSoBDGdXlhkltBetmDclplPg==",
+    "MathNet.Numerics/3.17.0": {
+      "sha512": "1nMX81xGwfkAVx/5AZMFXK4sxFXz1GxUsd+qIRs36NeVfO3YSwcTNcpFEZaj6/iSVOnenDF/HzvJ9ykczvq3+A==",
       "type": "package",
-      "path": "MathNet.Numerics/3.13.1",
+      "path": "MathNet.Numerics/3.17.0",
       "files": [
-        "MathNet.Numerics.3.13.1.nupkg.sha512",
+        "MathNet.Numerics.3.17.0.nupkg.sha512",
         "MathNet.Numerics.nuspec",
         "lib/net35/MathNet.Numerics.dll",
         "lib/net35/MathNet.Numerics.xml",
@@ -2793,12 +2809,12 @@
         "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll"
       ]
     },
-    "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831": {
-      "sha512": "9ZN1o4FUXWk+9dYbt8IjAr9/ZHYunYf1587UbCE13b2NLCGfyddy/hp6fsCSseMgZ5yiIPChy2Z2ANe8rAKbYg==",
+    "Microsoft.FSharp.Core.netcore/1.0.0-rc-170122": {
+      "sha512": "r+xpTQYo8HL3pxytFzC2TvaKjzJrIL3ok0gnrSM2HwdIQ8WTDzA2NCdjW9MscmCco3yFM+wdHBQUWnoXvsRpLQ==",
       "type": "package",
-      "path": "Microsoft.FSharp.Core.netcore/1.0.0-alpha-160831",
+      "path": "Microsoft.FSharp.Core.netcore/1.0.0-rc-170122",
       "files": [
-        "Microsoft.FSharp.Core.netcore.1.0.0-alpha-160831.nupkg.sha512",
+        "Microsoft.FSharp.Core.netcore.1.0.0-rc-170122.nupkg.sha512",
         "Microsoft.FSharp.Core.netcore.nuspec",
         "content/any/netstandard1.6/FSharp.Core.optdata",
         "content/any/netstandard1.6/FSharp.Core.sigdata",
@@ -2812,12 +2828,12 @@
         "runtimes/any/native/FSharp.Core.xml"
       ]
     },
-    "Microsoft.NETCore.App/1.0.1": {
-      "sha512": "1ZiTaAAc3Msi4siXtdVmallNCrFA5ZUzoGkIh4litHjBJBZcRgWvwRXT60woB5FpWPC9qDiTFc6L1Gr8EbOPog==",
+    "Microsoft.NETCore.App/1.1.0": {
+      "sha512": "DFec+OUojDVocn1GxAL9uJg4qwsgkvKiQpv6BKd9ljGezvc9p6GpFv51IIakiujkVW/wBtQ0xlfjVSgS1UG/uw==",
       "type": "package",
-      "path": "Microsoft.NETCore.App/1.0.1",
+      "path": "Microsoft.NETCore.App/1.1.0",
       "files": [
-        "Microsoft.NETCore.App.1.0.1.nupkg.sha512",
+        "Microsoft.NETCore.App.1.1.0.nupkg.sha512",
         "Microsoft.NETCore.App.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
@@ -3157,18 +3173,20 @@
         "lib/netstandard1.0/NuGet.Versioning.xml"
       ]
     },
-    "NUnit/3.4.1": {
-      "sha512": "G/9h/ENn8+GvT5DvBqVNrUhIWuxtAr0/oVGN2ljKVUw50EAZYBzeWSy9s6nqMswaQACpQzljql1sWQ/peE2eJg==",
+    "NUnit/3.6.0": {
+      "sha512": "mqJP3DI3mE9YSx0o7R5loyIm0NnLJLSl2lmXn84gSkOmLWzlbrxS0oW/cCZF25tB+6Anday/mbkRUXmdvEvSCg==",
       "type": "package",
-      "path": "NUnit/3.4.1",
+      "path": "NUnit/3.6.0",
       "files": [
         "CHANGES.txt",
         "LICENSE.txt",
         "NOTICES.txt",
-        "NUnit.3.4.1.nupkg.sha512",
+        "NUnit.3.6.0.nupkg.sha512",
         "NUnit.nuspec",
-        "lib/dotnet/nunit.framework.dll",
-        "lib/dotnet/nunit.framework.xml",
+        "lib/MonoAndroid/nunit.framework.dll",
+        "lib/MonoAndroid/nunit.framework.xml",
+        "lib/Xamarin.iOS10/nunit.framework.dll",
+        "lib/Xamarin.iOS10/nunit.framework.xml",
         "lib/net20/NUnit.System.Linq.dll",
         "lib/net20/nunit.framework.dll",
         "lib/net20/nunit.framework.xml",
@@ -3178,30 +3196,34 @@
         "lib/net40/nunit.framework.xml",
         "lib/net45/nunit.framework.dll",
         "lib/net45/nunit.framework.xml",
-        "lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.dll",
-        "lib/portable-net45+win8+wp8+wpa81+Xamarin.Mac+MonoAndroid10+MonoTouch10+Xamarin.iOS10/nunit.framework.xml"
+        "lib/netstandard1.6/nunit.framework.dll",
+        "lib/netstandard1.6/nunit.framework.xml",
+        "lib/portable-net45+win8+wp8+wpa81/nunit.framework.dll",
+        "lib/portable-net45+win8+wp8+wpa81/nunit.framework.xml"
       ]
     },
-    "NUnit.Portable.Agent/3.4.0-beta-2": {
-      "sha512": "91XarG692I/gCwDi3d1k5tRc1J4mPo6l6nHrYRKWSgc9M2a0SX1YNS/uJwth3bXQEn+499mdZ02NTuvJstRq1A==",
+    "NUnit.Portable.Agent/3.4.0-beta-3": {
+      "sha512": "BcgxOFtivkK8+eu5krwxxTWw6RtASfp7q/nQ18Z5a2rEvDHZz9h+U2fJjIrw4P9CtqbzZwNuGHprUnhoVqlZrw==",
       "type": "package",
-      "path": "NUnit.Portable.Agent/3.4.0-beta-2",
+      "path": "NUnit.Portable.Agent/3.4.0-beta-3",
       "files": [
-        "NUnit.Portable.Agent.3.4.0-beta-2.nupkg.sha512",
+        "NUnit.Portable.Agent.3.4.0-beta-3.nupkg.sha512",
         "NUnit.Portable.Agent.nuspec",
         "lib/net45/NUnit.Portable.Agent.dll",
         "lib/netstandard1.3/NUnit.Portable.Agent.dll"
       ]
     },
-    "RabbitMQ.Client/4.1.0": {
-      "sha512": "kRSynszpUNVgklJWK211sWMPtTUufexmgXtOD90hsqgT9YLACL/cb3+SPbb6sy8MwweNt71TkQFjOVjX3B0NOQ==",
+    "RabbitMQ.Client/4.1.1": {
+      "sha512": "KrIEo53c7/WGez9cdA38VOg7dbvBY0RacVqE8eoz/WXtBtpfeNO7tolND+H5J3JbVrFujhkQf4I5cq5ACeBpTg==",
       "type": "package",
-      "path": "RabbitMQ.Client/4.1.0",
+      "path": "RabbitMQ.Client/4.1.1",
       "files": [
-        "RabbitMQ.Client.4.1.0.nupkg.sha512",
+        "RabbitMQ.Client.4.1.1.nupkg.sha512",
         "RabbitMQ.Client.nuspec",
         "lib/net451/RabbitMQ.Client.dll",
-        "lib/netstandard1.5/RabbitMQ.Client.dll"
+        "lib/net451/RabbitMQ.Client.xml",
+        "lib/netstandard1.5/RabbitMQ.Client.dll",
+        "lib/netstandard1.5/RabbitMQ.Client.xml"
       ]
     },
     "runtime.native.System/4.0.0": {
@@ -7502,14 +7524,14 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "MathNet.Numerics >= 3.13.1",
-      "NUnit >= 3.4.1",
-      "RabbitMQ.Client >= 4.1.0",
-      "dotnet-test-nunit >= 3.4.0-beta-2"
+      "MathNet.Numerics >= 3.17.0",
+      "NUnit >= 3.6.0",
+      "RabbitMQ.Client >= 4.1.1",
+      "dotnet-test-nunit >= 3.4.0-*"
     ],
     ".NETCoreApp,Version=v1.0": [
-      "Microsoft.FSharp.Core.netcore >= 1.0.0-alpha-160831",
-      "Microsoft.NETCore.App >= 1.0.1"
+      "Microsoft.FSharp.Core.netcore >= 1.0.0-rc-170122",
+      "Microsoft.NETCore.App >= 1.1.0"
     ]
   },
   "tools": {
@@ -7534,7 +7556,7 @@
   },
   "projectFileToolGroups": {
     ".NETCoreApp,Version=v1.0": [
-      "dotnet-compile-fsc >= 1.0.0-preview2-*"
+      "dotnet-compile-fsc >= 1.0.0-*"
     ]
   }
 }
