@@ -681,7 +681,7 @@
           "lib/netstandard1.0/NuGet.Versioning.dll": {}
         }
       },
-      "NUnit/3.6.0": {
+      "NUnit/3.6.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0",
@@ -3173,15 +3173,15 @@
         "lib/netstandard1.0/NuGet.Versioning.xml"
       ]
     },
-    "NUnit/3.6.0": {
-      "sha512": "mqJP3DI3mE9YSx0o7R5loyIm0NnLJLSl2lmXn84gSkOmLWzlbrxS0oW/cCZF25tB+6Anday/mbkRUXmdvEvSCg==",
+    "NUnit/3.6.1": {
+      "sha512": "0FPgTzx3+8HQsQLv85IRXuQVlc53whh1gWQkYL2sqQu7sj9cCiNTgiv0SCTut7lvRX/fXyBIS954VJEjxtL5gw==",
       "type": "package",
-      "path": "NUnit/3.6.0",
+      "path": "NUnit/3.6.1",
       "files": [
         "CHANGES.txt",
         "LICENSE.txt",
         "NOTICES.txt",
-        "NUnit.3.6.0.nupkg.sha512",
+        "NUnit.3.6.1.nupkg.sha512",
         "NUnit.nuspec",
         "lib/MonoAndroid/nunit.framework.dll",
         "lib/MonoAndroid/nunit.framework.xml",
@@ -7525,7 +7525,7 @@
   "projectFileDependencyGroups": {
     "": [
       "MathNet.Numerics >= 3.17.0",
-      "NUnit >= 3.6.0",
+      "NUnit >= 3.6.1",
       "RabbitMQ.Client >= 4.1.1",
       "dotnet-test-nunit >= 3.4.0-*"
     ],
