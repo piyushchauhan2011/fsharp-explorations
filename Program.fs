@@ -297,7 +297,8 @@ module Program =
         Character.SayWeapon |> ignore
         Character.Tiet |> printfn "%A"
 
-        let p = new Person("Bob")
+        let p = Person("Bob")
+   
         p.NameChanged.Add(fun () -> printfn "-- Name changed! New name: %s" p.Name)
 
         printfn "Event handling is easy"
