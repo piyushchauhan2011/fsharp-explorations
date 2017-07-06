@@ -355,7 +355,7 @@ Good things
 And then"
         printfn "%A" multiLineStr
 
-        let cplx = new Complex(1.0,2.0)
+        let cplx = Complex(1.0,2.0)
         printfn "%A" cplx
 
         // Basic Function Composition
